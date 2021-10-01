@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quarkus Petclinic Owner Service: {#insert title}...{/}</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div class="container">
+  <div
+      style="height: 120px; background-image: url('/images/bg-home.jpeg');background-size: cover;text-align: center;padding-top:25px;">
+    <img src="/images/quarkus_logo.svg" width="450"/>
+  </div>
+</div>
+
+<div class="container" style="padding: 15px;">
+  <a class="btn btn-primary" href="/petclinic">Home</a>
+  <a class="btn btn-primary" href="/petclinic/owners/find.html">Find</a>
+  <a class="btn btn-primary" href="/petclinic/vets.html">Veterinarians</a>
+  <a class="btn btn-primary" href="/petclinic/oups.html">Error</a>
+  <a class="btn btn-primary" href="#">Help</a>
+</div>
+
+<div class="container">
+  <h1> {#insert title}...{/} </h1>
+</div>
+
+<div class="container">
+  {#insert content}...{/}
+</div>
+
+<div class="container" style="background-color: black;text-align:right;">
+    <a href="https://www.redhat.com"><img src="/images/sponsored_by_redhat.png"
+                                          alt="Sponsored by Red Hat"/></a>
+</div>
+
+</body>
+</html>

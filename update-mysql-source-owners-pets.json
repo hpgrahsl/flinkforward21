@@ -1,0 +1,18 @@
+{
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": false,
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": false,
+    "tasks.max": "1",
+    "database.hostname": "mysql",
+    "database.port": "3306",
+    "database.user": "root",
+    "database.password": "debezium",
+    "database.server.id": "12345",
+    "database.server.name": "mysql1",
+    "database.include": "petclinic",
+    "table.include.list": "petclinic.pets",
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "database.history.kafka.topic": "schema-changes.petclinic"
+}

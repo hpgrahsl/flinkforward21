@@ -1,0 +1,30 @@
+{@com.github.hpgrahsl.quarkus.OwnerWithPets o}
+{#include page.html}
+  {#title}Owner Information{/title}
+  {#content}
+<form method="POST" name="ownerFormFields" enctype="multipart/form-data" style="padding: 10px;">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <td><strong>Name</strong></td>
+      <td>
+        first name: <input type="text" name="first_name" class="form-control" id="first_name" placeholder="first name" required value="{o.owner.first_name}">
+        last name: <input type="text" name="last_name" class="form-control" id="last_name" placeholder="last name" required value="{o.owner.last_name}">
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Address</strong></td>
+      <td><input type="text" name="address" class="form-control" id="address" placeholder="address" required value="{o.owner.address}"></td>
+    </tr>
+    <tr>
+      <td><strong>City</strong></td>
+      <td><input type="text" name="city" class="form-control" id="city" placeholder="city" required value="{o.owner.city}"></td>
+    </tr>
+    <tr>
+      <td><strong>Telephone</strong></td>
+      <td><input type="text" name="telephone" class="form-control" id="telephone" placeholder="telephone" required value="{o.owner.telephone}"></td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-primary">Update Owner</button>
+</form>
+  {/content}
+{/include}

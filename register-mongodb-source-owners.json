@@ -1,0 +1,21 @@
+{
+    "name": "petclinic-owners-mongodb-src-001",
+    "config": {
+        "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "key.converter.schemas.enable":true,
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable":true,
+        "mongodb.hosts": "mongodb:27017", 
+        "mongodb.name": "mongodb",
+        "collection.include.list": "petclinic.flink_owner_with_pets",
+        "transforms":"unwrap,filter,rename",
+        "transforms.unwrap.type":"io.debezium.connector.mongodb.transforms.ExtractNewDocumentState",
+        "transforms.unwrap.array.encoding":"document",
+        "transforms.unwrap.flatten.struct":true,
+        "transforms.filter.type":"org.apache.kafka.connect.transforms.ReplaceField$Value",
+        "transforms.filter.whitelist":"id,owner_address,owner_city,owner_first_name,owner_last_name,owner_telephone",
+        "transforms.rename.type":"org.apache.kafka.connect.transforms.ReplaceField$Value",
+        "transforms.rename.renames":"owner_address:address,owner_city:city,owner_first_name:first_name,owner_last_name:last_name,owner_telephone:telephone"
+    }
+}

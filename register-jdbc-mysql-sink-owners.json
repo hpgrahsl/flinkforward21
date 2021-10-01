@@ -1,0 +1,21 @@
+{
+    "name": "petclinic-owners-jdbc-mysql-sink-004",
+    "config": {
+        "topics": "mongodb.petclinic.flink_owner_with_pets",
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "key.converter.schemas.enable":true,
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable":true,
+        "connection.url": "jdbc:mysql://mysql:3306/petclinic?useSSL=false&serverTimezone=UTC",
+        "connection.user": "root",
+        "connection.password":"debezium",
+        "pk.mode":"record_value",
+        "pk.fields":"id",
+        "insert.mode":"upsert",
+        "transforms": "route",
+        "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+        "transforms.route.regex": "mongodb.*(owner).*",
+        "transforms.route.replacement": "$1s"
+    }
+}
