@@ -41,12 +41,10 @@ public class OwnersPetsJoiner {
         );
 
     Table pet_and_owner =
-      //dbz_mysql_pets.join(dbz_mysql_owners) 
-      dbz_mysql_owners.leftOuterJoin(dbz_mysql_pets)
+      dbz_mysql_owners.join(dbz_mysql_pets)
         .where($("owner").get("id").isEqual($("pet").get("owner_id")));
 
     Table owners_with_pets =
-        //pet_and_owner.groupBy($("pet").get("owner_id").as("key"))
         pet_and_owner.groupBy($("owner").get("id").as("key"))
         .flatAggregate(call(OwnerWithPetsTableAggregator.class,$("owner"),$("pet")).as("owner","pets"))
         .select($("key"),$("owner"),$("pets"));
